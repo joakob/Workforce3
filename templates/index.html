@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+
+{% block body %}
+<div class="container py-5">
+  <h1 class="text-center mb-5">{{ title }}</h1>
+  <div class="row g-4 justify-content-center">
+    <div class="col-sm-6 col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body text-center">
+          <h5 class="card-title">Layout</h5>
+          <p class="card-text">Gestiona la sección de Layout</p>
+          <a href="{{ url_for('layout.layout') }}" class="btn btn-primary">Ir a Layout</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body text-center">
+          <h5 class="card-title">Programación</h5>
+          <p class="card-text">Genera y descarga tu programación</p>
+          <a href="{{ url_for('programacion.programacion') }}" class="btn btn-primary">Ir a Programación</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body text-center">
+          <h5 class="card-title">Conversor</h5>
+          <p class="card-text">Accede al conversor de formatos</p>
+          <a href="{{ url_for('conversor.conversor') }}" class="btn btn-primary">Ir al Conversor</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

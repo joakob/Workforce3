@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+
+{% block body %}
+<div class="container py-5">
+  <h1 class="mb-4 text-center">Carga de Nómina</h1>
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% for cat,msg in messages %}
+      <div class="alert alert-{{cat}}">{{msg}}</div>
+    {% endfor %}
+  {% endwith %}
+  <form method="post" enctype="multipart/form-data">
+    <div class="mb-3">
+      <label for="nomina" class="form-label">Archivo Nómina (.xlsx)</label>
+      <input type="file" id="nomina" name="nomina" class="form-control" accept=".xlsx" required>
+    </div>
+    <button class="btn btn-primary">Subir Nómina</button>
+  </form>
+</div>
+{% endblock %}

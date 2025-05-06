@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+
+{% block body %}
+  
+
+  <div class="container d-flex justify-content-center">
+    <div class="col-md-6">
+      <div class="card shadow-sm mt-5">
+        <div class="card-header bg-primary text-white">
+          <h3 class="mb-0">Generador de Nómina por Servicio</h3>
+        </div>
+        <div class="card-body">
+          {% with messages = get_flashed_messages() %}
+            {% if messages %}
+              <div class="alert alert-warning">{{ messages[0] }}</div>
+            {% endif %}
+          {% endwith %}
+
+          <form method="post" enctype="multipart/form-data">
+            <div class="mb-3">
+              <label class="form-label">Servicio</label>
+              <select class="form-select" name="servicio" required>
+                <option value="Sop_Conectividad">Soporte Conectividad</option>
+                <option value="Sop_Flow">Soporte Flow</option>
+                <option value="Esp_CATV">Esp. CATV</option>
+                <option value="Esp_Movil">Esp. Movil</option>
+                <option value="Esp_XDSL" selected>Esp. XDSL</option>
+                <option value="Digital">Digital</option>
+                <option value="CBS">CBS</option>
+                <option value="SMB_TecnicaIN">SMB TecnicaIN</option>
+                <option value="SMB_Digital">SMB Digital</option>
+              </select>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Archivo Requeridos (.xlsx)</label>
+              <input class="form-control" type="file" name="requeridos" accept=".xlsx" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">Procesar</button>
+          </form>
+
+          {% if download_url %}
+            <div class="text-center mt-4">
+              <a href="{{ download_url }}" class="btn btn-success">Descargar Reporte</a>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

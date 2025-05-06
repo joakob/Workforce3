@@ -1,0 +1,68 @@
+:root {
+    --primary-blue: #00509e;
+    --dark-blue:   #003366;
+    --light-blue:  #e7f1ff;
+    --white:       #ffffff;
+  }
+  
+  body {
+    background-color: var(--white);
+    color: var(--primary-blue);
+    font-family: orbitron, sans-serif;
+  }
+  
+  .card {
+    border: 2px solid var(--primary-blue);
+    background-color: var(--light-blue);
+  }
+  
+  .card-header {
+    background-color: var(--primary-blue);
+    color: var(--white);
+    font-size: 1.25rem;
+  }
+  
+  .card-body {
+    padding: 1.5rem;
+  }
+  
+  .form-label {
+    color: var(--primary-blue);
+    font-weight: bold;
+  }
+  
+  .form-control,
+  .form-select {
+    border: 1px solid var(--primary-blue);
+    color: var(--primary-blue);
+  }
+  
+  .btn-primary {
+    background-color: var(--primary-blue);
+    border: 1px solid var(--primary-blue);
+    color: var(--white);
+    transition: background-color 0.2s;
+  }
+  
+  .btn-primary:hover {
+    background-color: var(--dark-blue);
+    border-color: var(--dark-blue);
+  }
+  
+  .alert-warning {
+    background-color: var(--light-blue);
+    border-color: var(--primary-blue);
+    color: var(--primary-blue);
+  }
+  
+  a.btn-success {
+    background-color: var(--primary-blue);
+    border-color: var(--primary-blue);
+    color: var(--white);
+  }
+  
+  a.btn-success:hover {
+    background-color: var(--dark-blue);
+    border-color: var(--dark-blue);
+  }
+  

@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block body %}
+<div class="container py-5">
+  <h1 class="text-center mb-4">{{ title or "Conversor de Programación" }}</h1>
+
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for category, message in messages %}
+        <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+          {{ message }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+
+  <form method="post" enctype="multipart/form-data" class="row g-3">
+    <div class="col-md-6">
+      <label for="servicio" class="form-label">Servicio</label>
+      <select id="servicio" name="servicio" class="form-select" required>
+        {% for s in services %}
+          <option value="{{ s }}">{{ s.replace('_', ' ') }}</option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <div class="col-md-6">
+      <label for="prog_file" class="form-label">Archivo de Programación (.xlsx)</label>
+      <input type="file" id="prog_file" name="prog_file" class="form-control" accept=".xlsx" required>
+    </div>
+
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary w-100">Generar Programación</button>
+    </div>
+  </form>
+
+  {% if download_url %}
+    <div class="text-center mt-4">
+      <a href="{{ download_url }}" class="btn btn-success">
+        <i class="bi bi-download me-1"></i> Descargar Excel Generado
+      </a>
+    </div>
+  {% endif %}
+</div>
+{% endblock %}
